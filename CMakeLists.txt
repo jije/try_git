@@ -4,6 +4,7 @@ project (WebService)
 #version number
 set (WebService_VERSION_MAJOR 1)
 set (WebService_VERSION_MINOR 0)
+set(CMAKE_CXX_FLAGS "-fpermissive")
 
 #include the subdirectory containing our libs
 add_subdirectory (third-party/jsoncpp)
