@@ -1,23 +1,5 @@
-/*
- * libwebsockets-test-server - libwebsockets test implementation
- *
- * Written in 2010-2019 by Andy Green <andy@warmcat.com>
- *
- * This file is made available under the Creative Commons CC0 1.0
- * Universal Public Domain Dedication.
- *
- * The person who associated a work with this deed has dedicated
- * the work to the public domain by waiving all of his or her rights
- * to the work worldwide under copyright law, including all related
- * and neighboring rights, to the extent allowed by law. You can copy,
- * modify, distribute and perform the work, even for commercial purposes,
- * all without asking permission.
- *
- * The test apps are intended to be adapted for use in your code, which
- * may be proprietary.	So unlike the library itself, they are licensed
- * Public Domain.
- */
 
+#if 0
 #include <libwebsockets.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -747,4 +729,34 @@ done:
 	lwsl_notice("libwebsockets-test-server exited cleanly\n");
 
 	return 0;
+}
+
+#endif
+/**
+ * COPYRIGHT ⓒ 2017 Obigo Inc.
+ * All rights reserved.
+ *
+ * This software is covered by the license agreement between
+ * the end user and Obigo Inc.,and may be
+ * used and copied only in accordance with the terms of the
+ * said agreement.
+ *
+ * Obigo Inc. assumes no responsibility or
+ * liability for any errors or inaccuracies in this software,
+ * or any consequential, incidental or indirect damage arising
+ * out of the use of the software.
+ * 
+ * @section DESCRIPTION
+ *
+ */
+
+#include <websocket_manager.h>
+
+#include <stdio.h>
+#include <iostream>
+
+using namespace std;
+
+int main(int argc, char *argv[]) {
+  websocketManager* manager = new websocketManager();
 }
