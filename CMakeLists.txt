@@ -9,6 +9,10 @@ set (WebService_VERSION_MINOR 0)
 add_subdirectory (third-party/jsoncpp)
 include_directories(third-party/jsoncpp)
 #indicate the entry point for the executable
+
+add_subdirectory (third-party/libwebsockets)
+include_directories(third-party/libwebsockets)
+
 add_executable (WebService third-party/ main.cc)
 
 # Indicate which libraries to include during the link process.
