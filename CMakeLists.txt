@@ -6,12 +6,12 @@ set (WebService_VERSION_MAJOR 1)
 set (WebService_VERSION_MINOR 0)
 
 #include the subdirectory containing our libs
-add_subdirectory (third-party)
-include_directories(third-party)
+add_subdirectory (third-party/jsoncpp)
+include_directories(third-party/jsoncpp)
 #indicate the entry point for the executable
-add_executable (WebService third-party main.cc)
+add_executable (WebService third-party/ main.cc)
 
 # Indicate which libraries to include during the link process.
-target_link_libraries (WebService third-party)
+target_link_libraries (WebService jsoncpp)
 
 install (TARGETS WebService DESTINATION bin)
