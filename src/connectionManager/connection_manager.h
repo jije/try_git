@@ -17,11 +17,14 @@
  * The connectionManager class manages websocket connections.
  */
 
-#include "websocket.h"
+#ifndef SRC_CONNECTIONMANAGER_CONNECTION_MANAGER_H_
+#define SRC_CONNECTIONMANAGER_CONNECTION_MANAGER_H_
 
 #include <memory>
 #include <vector>
 
+struct lws;
+class websocket;
 class connectionManager {
  public:
 /**
@@ -36,6 +39,9 @@ class connectionManager {
 */
   ~connectionManager();
 
+  void addNewConnection(struct lws *wsi);
+
  private:
   std::vector<std::unique_ptr<websocket>> connection_lists_;	
 };
+#endif  // SRC_CONNECTIONMANAGER_CONNECTION_MANAGER_H_

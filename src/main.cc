@@ -17,7 +17,7 @@
  * may be proprietary.	So unlike the library itself, they are licensed
  * Public Domain.
  */
-
+#if 0
 #include <libwebsockets.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -747,4 +747,34 @@ done:
 	lwsl_notice("libwebsockets-test-server exited cleanly\n");
 
 	return 0;
+}
+#endif
+
+/**
+ * COPYRIGHT ⓒ 2017 Obigo Inc.
+ * All rights reserved.
+ *
+ * This software is covered by the license agreement between
+ * the end user and Obigo Inc.,and may be
+ * used and copied only in accordance with the terms of the
+ * said agreement.
+ *
+ * Obigo Inc. assumes no responsibility or
+ * liability for any errors or inaccuracies in this software,
+ * or any consequential, incidental or indirect damage arising
+ * out of the use of the software.
+ * 
+ * @section DESCRIPTION
+ *
+ */
+
+#include <websocket_manager.h>
+
+#include <stdio.h>
+#include <iostream>
+
+using namespace std;
+
+int main(int argc, char *argv[]) {
+  websocketManager* manager = new websocketManager();
 }

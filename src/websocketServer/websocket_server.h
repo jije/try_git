@@ -17,17 +17,22 @@
  * The websocketServer class starts websocket server.
  */
 
-//#include "libwebsockets.h"
-#include <stdint.h>
+#ifndef SRC_WEBSOCKETSERVER_WEBSOCKET_SERVER_H_
+#define SRC_WEBSOCKETSERVER_WEBSOCKET_SERVER_H_
 
+#include <stdint.h>
+#include <pthread.h>
+
+class websocketManager;
 class websocketServer {
  public:
 /**
  * Constructor
  *
+ * @param manager is pointer of websocketManager object
  * @param port is server port number
 */
-  websocketServer(int16_t port);
+  websocketServer(websocketManager* manager, int16_t port);
 
 /**
  * Destructor
@@ -36,8 +41,12 @@ class websocketServer {
   ~websocketServer();
 
  private:
-  void createAndStartServer(int16_t port);
+  void connectionEstablished(struct lws *wsi);
+  static void* createAndStartServer(int16_t port);
 
  private:
   int16_t port_;
+  websocketManager* manager_;
+  pthread_mutex_t lock_;
 };
+#endif  // SRC_WEBSOCKETSERVER_WEBSOCKET_SERVER_H_

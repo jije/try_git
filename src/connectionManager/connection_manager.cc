@@ -18,9 +18,10 @@
  */
 
 #include "connection_manager.h"
+#include "websocket.h"
 
 #include <stdio.h>
-
+#include <libwebsockets.h>
 /**
  * Constructor
  *
@@ -38,4 +39,15 @@ connectionManager::connectionManager() {
 connectionManager::~connectionManager() {
   //log (trace)
   printf("create connectionManager!\n");
+}
+
+/**
+ * Function Destructor
+ *
+*/
+void connectionManager::addNewConnection(struct lws *wsi) {
+  if (wsi != nullptr) {
+    auto connection = std::make_unique<websocket>(wsi);
+    connection_lists_.push_back(std::move(connection));
+  }
 }

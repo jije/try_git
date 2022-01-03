@@ -30,14 +30,14 @@ websocketManager::websocketManager() {
   //log (trace)
   printf("create websocketManager!\n");
   //load configuration
-  // test fix port : 9999
-  int16_t port = 9999;
+  // test fix port : 7681
+  int16_t port = 7681;
 
   //create connectionManager
   connection_manager_ = std::make_unique<connectionManager>();
   service_manager_= std::make_unique<serviceManager>();
   token_manager_ = std::make_unique<tokenManager>();
-  websocket_server_ = std::make_unique<websocketServer>(port);
+  websocket_server_ = std::make_unique<websocketServer>(this, port);
 }
 
 /**

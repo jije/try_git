@@ -16,6 +16,8 @@
  *
  * The websocketManager class.
  */
+#ifndef SRC_WEBSOCKET_MANAGER_H_
+#define SRC_WEBSOCKET_MANAGER_H_
 
 #include "connectionManager/connection_manager.h"
 #include "serviceManager/service_manager.h"
@@ -38,9 +40,11 @@ class websocketManager {
 */
   ~websocketManager();
 
+  connectionManager* getConnectionManager() { return connection_manager_.get(); }
  private:
   std::unique_ptr<connectionManager> connection_manager_;
   std::unique_ptr<serviceManager> service_manager_;
   std::unique_ptr<tokenManager> token_manager_;
   std::unique_ptr<websocketServer> websocket_server_;
 };
+#endif  // SRC_WEBSOCKET_MANAGER_H_

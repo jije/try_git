@@ -17,7 +17,9 @@
  * The websocket class manages websocket connection.
  */
 
-//#include "libwebsockets.h"
+#ifndef SRC_CONNECTIONMANAGER_WEBSOCKET_H_
+#define SRC_CONNECTIONMANAGER_WEBSOCKET_H_
+#include <libwebsockets.h>
 
 class websocket {
  public:
@@ -25,7 +27,7 @@ class websocket {
  * Constructor
  *
 */
-  websocket();
+ websocket(struct lws *wsi);
 
 /**
  * Destructor
@@ -34,4 +36,6 @@ class websocket {
   ~websocket();
 
  private:
+  lws *wsi_;
 };
+#endif  // SRC_CONNECTIONMANAGER_WEBSOCKET_H_

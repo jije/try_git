@@ -25,9 +25,10 @@
  * Constructor
  *
 */
-websocket::websocket() {
+websocket::websocket(struct lws *wsi) {
   //log (trace)
   printf("create websocket!\n");
+  wsi_ = wsi;
 }
 
 /**
