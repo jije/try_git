@@ -23,6 +23,7 @@
 */
 
 #include "service_manager.h"
+#include <libwebsockets.h>
 
 #include <stdio.h>
 

@@ -17,9 +17,11 @@ include_directories(third-party/libwebsockets)
 
 add_subdirectory (src)
 include_directories(src)
-add_executable (WebService third-party/jsoncpp third-party/libwebsockets src/ main.cc)
+
+#add_executable (WebService third-party/jsoncpp third-party/libwebsockets src/ main.cc)
+add_executable (WebService src/main.cc)
 
 # Indicate which libraries to include during the link process.
-target_link_libraries (WebService jsoncpp websockets websocketManager)
+target_link_libraries (WebService websocketManager)
 
 install (TARGETS WebService DESTINATION bin)

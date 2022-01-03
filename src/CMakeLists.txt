@@ -12,7 +12,8 @@ add_library (websocketManager
   websocketServer/websocket_server.cc
   websocketServer/websocket_server.h)
 
-INCLUDE_DIRECTORIES (../third-party/libwebsockets/include ../third-party/jsoncpp/json)
+INCLUDE_DIRECTORIES (${CMAKE_SOURCE_DIR}/third-party/libwebsockets/include ${CMAKE_SOURCE_DIR}/third-party/jsoncpp/json)
 
+target_link_libraries (websocketManager jsoncpp websockets)
 install (TARGETS websocketManager DESTINATION bin)
 #install (FILES json.h json/json-forwards.h DESTINATION include)
